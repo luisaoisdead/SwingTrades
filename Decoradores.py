@@ -29,17 +29,23 @@ def operate(func, x):
     hora_decimal = round(ahora.hour + ahora.minute/60 + ahora.second/3600,5)
     result = 0
     arranco=False
+    #print(hora_decimal," ",HORA_INICIO_BOT, " ", HORA_FIN_BOT )
+    #print(hora_decimal > HORA_INICIO_BOT)
+    #print(hora_decimal < HORA_FIN_BOT)
+    print((hora_decimal > HORA_INICIO_BOT) & (hora_decimal < HORA_FIN_BOT) & arranco==False)
     if hora_decimal < HORA_INICIO_BOT:
         print(f'Esperando a las {HORA_INICIO_BOT}, Son las:',hora_decimal)
         time.sleep(1)
         # Aca puede ejecutar tareas de preparacion de rueda
-        
+        print("Entre 1")
     elif ((hora_decimal > HORA_INICIO_BOT) & (hora_decimal < HORA_FIN_BOT) & arranco==False):
         #Ejecutamos el programa
         result = func(x)    
         arranco=True
+        print("Entre 2")
     elif (hora_decimal > HORA_FIN_BOT):
         print(f'Son las {hora_decimal}, fin de horario de operaciones: {HORA_FIN_BOT}')
+        print("Entre 3")
     
     return result
 
