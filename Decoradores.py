@@ -42,3 +42,5 @@ def operate(func, x):
         print(f'Son las {hora_decimal}, fin de horario de operaciones: {HORA_FIN_BOT}')
     
     return result
+
+operate(dec,5)
